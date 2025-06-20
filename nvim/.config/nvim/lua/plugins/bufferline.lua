@@ -9,3 +9,5 @@ vim.keymap.set('n', '<leader>5', "<Cmd>BufferLineGoToBuffer 5<CR>")
 
 vim.keymap.set('n', '<leader>[', "<Cmd>BufferLineCyclePrev<CR>")
 vim.keymap.set('n', '<leader>]', "<Cmd>BufferLineCycleNext<CR>")
+
+vim.keymap.set('n', '<leader>q', "<Cmd>bd<CR>")
