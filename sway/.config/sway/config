@@ -1,7 +1,7 @@
 # Set wallpaper and colorscheme
-exec "./scripts/wallpaper.sh"
-include "~/.cache/wal/colors-sway"
-output * bg $wallpaper fill
+#exec "./scripts/wallpaper.sh"
+#include "~/.cache/wal/colors-sway"
+output * bg "$HOME/Pictures/Screenshots/Screenshot From\ 2025-06-20\ 19-04-43.png" fill
 
 # Notification daemon
 exec mako
@@ -22,7 +22,3 @@ exec gammastep -l 50.64:5.57 -t 5700:3600 -g 0.8 -m wayland
 # Disable laptop screen
 bindsym $mod+d exec swaymsg output eDP-1 disable
 bindsym $mod+Shift+d exec swaymsg output eDP-1 enable
-
-# Shortcuts
-# bindsym $mod+n exec $term, exec 
-bindsym $mod+i exec librewolf
