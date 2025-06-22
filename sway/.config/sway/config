@@ -1,7 +1,7 @@
 # Set wallpaper and colorscheme
 #exec "./scripts/wallpaper.sh"
 #include "~/.cache/wal/colors-sway"
-output * bg "$HOME/Pictures/Screenshots/Screenshot From\ 2025-06-20\ 19-04-43.png" fill
+output * bg "/usr/share/backgrounds/default.jxl" fill
 
 # Notification daemon
 exec mako

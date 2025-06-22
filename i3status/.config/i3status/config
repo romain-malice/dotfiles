@@ -15,14 +15,14 @@ wireless _first_ {
 }
 
 volume master {
-    format = "󰕾 %volume"
+    format = "󰕾  %volume"
     format_muted = "󰖁 "
     device = "pulse"
 }
 
 battery 0 {
     format = "%status %percentage"
-    status_chr = "󰂄"
+    status_chr = "󰂀"
     status_bat = "󰂀"
     status_full = "󱈑"
     last_full_capacity = true
