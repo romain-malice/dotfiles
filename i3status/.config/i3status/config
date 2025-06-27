@@ -2,6 +2,8 @@ general {
     output_format = "none"
     colors = true
     interval = 5
+    color_good = "#00ff00"
+    color_bad = "#ff0000"
 }
 
 order += "wireless _first_"
@@ -10,25 +12,25 @@ order += "battery 0"
 order += time
 
 wireless _first_ {
-    format_up = "󰖩  %essid (%quality)"
-    format_down = "󰖪 "
+    format_up = "󰖩%quality @ %essid"
+    format_down = "󰖪"
 }
 
 volume master {
-    format = "󰕾  %volume"
-    format_muted = "󰖁 "
+    format = "󰕾 %volume"
+    format_muted = "󰖁"
     device = "pulse"
 }
 
 battery 0 {
     format = "%status %percentage"
-    status_chr = "󰂀"
+    status_chr = "󰂄"
     status_bat = "󰂀"
     status_full = "󱈑"
     last_full_capacity = true
     integer_battery_capacity = true
-    low_threshold = 20
-    threshold_type = percentage
+    low_threshold = 30
+    threshold_type = time
     path = "/sys/class/power_supply/BATT/uevent"
 }
 

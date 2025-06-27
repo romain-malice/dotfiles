@@ -1,21 +1,21 @@
 # Set wallpaper and colorscheme
 #exec "./scripts/wallpaper.sh"
 #include "~/.cache/wal/colors-sway"
-output * bg "/usr/share/backgrounds/default.jxl" fill
 
 # Notification daemon
 exec mako
 
-########
-# Idle #
-########
+# Default apps
+set $term alacritty
+set $menu fuzzel
 
+# Idle
 exec swayidle -w timeout 300 'swaymsg output \* power off'\
     timeout 300 "swaylock -f -i $wallpaper"\
-    resume 'swaymsg output \* power on'
-
-exec swayidle -w timeout 1800 "swaymsg 'output * power on'"\
-    timeout 1800 'systemctl suspend'
+    resume 'swaymsg output \* power on'\
+    timeout 1785 "swaymsg 'output * power on'"\
+    timeout 1785 'notify-send "Suspending soon"'
+exec swayidle timeout 1800 'systemctl suspend'
 exec swayidle before-sleep "swaylock -f -i $wallpaper"
 
 # Include modules
@@ -29,3 +29,26 @@ bindsym $mod+d exec swaymsg output eDP-1 disable
 bindsym $mod+Shift+d exec swaymsg output eDP-1 enable
 
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
+# Borders
+gaps inner 7
+gaps outer 4
+gaps top 4
+
+default_border pixel 3
+smart_borders yes
+
+set $gnome-schema org.gnome.desktop.interface
+exec_always {
+    gsettings set $gnome-schema gtk-theme 'Adwaita'
+    gsettings set $gnome-schema color-scheme 'prefer-light'
+    gsettings set $gnome-schema cursor-theme 'volantes_cursors'
+}
+
+# -------------
+# -- Scripts --
+# -------------
+
+# Power menu
+bindsym $mod+p exec ./scripts/power-menu.sh
+bindsym $mod+z exec sh ./scripts/test.sh
