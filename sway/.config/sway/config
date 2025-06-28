@@ -1,6 +1,14 @@
-# Set wallpaper and colorscheme
-#exec "./scripts/wallpaper.sh"
-#include "~/.cache/wal/colors-sway"
+# Colors
+set $background "#B9E3C6"
+set $accent "#E8871E"
+set $light "#EDB458"
+set $dark "#201E50"
+set $gray "#525B76"
+
+output * bg $background solid_color
+
+# client.x <border> <background> <text> ( <indicator> <child_border> )
+client.focused $accent $light $gray $light $accent
 
 # Notification daemon
 exec mako
@@ -11,7 +19,7 @@ set $menu fuzzel
 
 # Idle
 exec swayidle -w timeout 300 'swaymsg output \* power off'\
-    timeout 300 "swaylock -f -i $wallpaper"\
+    timeout 300 "swaylock -f -c"\
     resume 'swaymsg output \* power on'\
     timeout 1785 "swaymsg 'output * power on'"\
     timeout 1785 'notify-send "Suspending soon"'
