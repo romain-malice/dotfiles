@@ -1,3 +1,7 @@
-require'typst-preview'.setup{}
-
-vim.keymap.set('n', '<leader>pt', "<Cmd>TypstPreviewToggle<CR>", { desc = "Toggle typst preview" })
+return {
+    'chomosuke/typst-preview.nvim',
+    version = '1.*',
+    opts = {
+        dependencies_bin = { ['tinymist'] = 'tinymist' }
+    }, -- lazy.nvim will implicitly calls `setup {}`
+}
