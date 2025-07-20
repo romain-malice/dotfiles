@@ -7,7 +7,7 @@ fi
 
 # User specific environment
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
-    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+    PATH="$HOME/.local/bin:$PATH"
 fi
 export PATH
 
@@ -25,3 +25,4 @@ fi
 unset rc
 
 alias v="nvim"
+export TERMINAL_THEME="light"

@@ -18,55 +18,22 @@
 # I put the file alacritty.toml in $HOME/.config/alacritty. However it can be kept anywhere among the places mentioned in
 # https://github.com/alacritty/alacritty/tree/master#configuration
 [general]
-import = ["onedark.toml"]
+import = ["theme.toml"]
 
 [window]
 
-padding.x = 0
-padding.y = 0
+padding.x = 5
+padding.y = 2
+dynamic_padding = true
 
 decorations = "None"
 
 [font]
 
-#normal.family = "Cascadia Code PL"
-#bold.family = "Cascadia Code PL"
-#italic.family = "Cascadia Code PL"
-#bold_italic.family = "Cascadia Code PL"
+normal = { family = "CaskaydiaMono Nerd Font Mono", style = "Semilight" }
+bold= { family = "CaskaydiaMono Nerd Font Mono", style = "Bold" }
+italic= { family = "CaskaydiaMono Nerd Font Mono", style = "Semilight Italic" }
+bold_italic= { family = "CaskaydiaMono Nerd Font Mono", style = "Bold Italic" }
+offset = { x = 1, y = 2 }
 
 size = 12.0
-
-# Tip: for inspiration, look for values in the source code files of your favorite VS Code themes, and use the color picker in
-# Google to test colors before setting a value, or simply using an editor such as VS Code where colors are displayed in a 
-# small box when a HEX is detected by the editor.
-[colors.primary]
-foreground = "#abb2bf"
-background = "#282c34"
-
-[colors.cursor]
-text = "#282c34"
-cursor = "#abb2bf"
-
-[colors.selection]
-text = "#282c34"
-background = "#abb2bf"
-
-[colors.normal]
-black = "#1e2127"
-red = "#e06c75"
-green = "#98c379"
-yellow = "#d19a66"
-blue = "#61afef"
-magenta = "#c678dd"
-cyan = "#56b6c2"
-white = "#abb2bf"
-
-[colors.bright]
-black = "#5c6370"
-red = "#e06c75"
-green = "#98c379"
-yellow = "#d19a66"
-blue = "#61afef"
-magenta = "#c678dd"
-cyan = "#56b6c2"
-white = "#ffffff"

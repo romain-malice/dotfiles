@@ -1,30 +1,20 @@
-# Colors
-set $background "#B9E3C6"
-set $accent "#E8871E"
-set $light "#EDB458"
-set $dark "#201E50"
-set $gray "#525B76"
-
-output * bg $background solid_color
-
-# client.x <border> <background> <text> ( <indicator> <child_border> )
-client.focused $accent $light $gray $light $accent
+output * background ~/Pictures/snow-mountain.jpg fill
 
 # Notification daemon
 exec mako
 
 # Default apps
-set $term alacritty
+set $term kitty
 set $menu fuzzel
 
 # Idle
-exec swayidle -w timeout 300 'swaymsg output \* power off'\
-    timeout 300 "swaylock -f -c"\
-    resume 'swaymsg output \* power on'\
-    timeout 1785 "swaymsg 'output * power on'"\
-    timeout 1785 'notify-send "Suspending soon"'
-exec swayidle timeout 1800 'systemctl suspend'
-exec swayidle before-sleep "swaylock -f -i $wallpaper"
+exec swayidle -w \
+    timeout 270 'notify-send "Going to sleep soon."'\
+    timeout 300 'swaylock -f -i ~/Pictures/snow-mountain.jpg' \
+    timeout 300 'swaymsg "output * power off"' \
+         resume 'swaymsg "output * power on"' \
+    timeout 600 'systemctl suspend'\
+    before-sleep 'swaylock -f -i ~/Pictures/snow-mountain.jpg'
 
 # Include modules
 include "./config.d/*"
@@ -39,11 +29,11 @@ bindsym $mod+Shift+d exec swaymsg output eDP-1 enable
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
 # Borders
-gaps inner 7
-gaps outer 4
-gaps top 4
+# gaps inner 7
+# gaps outer 4
+# gaps top 4
 
-default_border pixel 3
+default_border pixel 2
 smart_borders yes
 
 set $gnome-schema org.gnome.desktop.interface
@@ -58,5 +48,7 @@ exec_always {
 # -------------
 
 # Power menu
-bindsym $mod+p exec ./scripts/power-menu.sh
-bindsym $mod+z exec sh ./scripts/test.sh
+bindsym $mod+p exec $HOME/.config/sway/scripts/power-menu.sh
+
+# KDE Connect
+bindsym $mod+c exec $HOME/.config/sway/scripts/kdeconnect.sh
