@@ -25,4 +25,3 @@ fi
 unset rc
 
 alias v="nvim"
-export TERMINAL_THEME="light"
