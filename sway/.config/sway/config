@@ -20,7 +20,7 @@ exec swayidle -w \
 include "./config.d/*"
 
 # Color temperature adjustement
-exec gammastep -l 50.64:5.57 -t 5700:3600 -g 0.8 -m wayland
+exec gammastep -l 50.64:5.57 -t 5000:3600 -g 0.8 -m wayland
 
 # Disable laptop screen
 bindsym $mod+d exec swaymsg output eDP-1 disable
@@ -34,7 +34,12 @@ gaps outer 3
 gaps top 3
 
 default_border pixel 2
-smart_borders yes
+smart_borders no
+
+# Colors
+#client.<class> <border> <background> <text> (more at 'man 5 sway')
+client.unfocused #3b4252 #2e3440 #d8dee9
+client.focused #8fbcbb #8fbcbb #eceff4
 
 set $gnome-schema org.gnome.desktop.interface
 # exec_always {
@@ -46,7 +51,6 @@ set $gnome-schema org.gnome.desktop.interface
 # Gestures
 bindgesture swipe:right workspace prev
 bindgesture swipe:left workspace next
-bindgesture swipe:up exec "rofi -show window"
 
 # -------------
 # -- Scripts --

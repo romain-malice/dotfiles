@@ -8,7 +8,7 @@ actions="Share File\nCopy Clipboard"
 choice=$(echo -e $actions | rofi -dmenu -p "Action : " || exit 0)
 
 case "$choice" in
-    'Share File') kdeconnect-cli -n $device_name -share $(fzf)
+    'Share File') kdeconnect-cli -n $device_name -share $(rofi -show recursivebrowser)
     ;;
     'Copy Clipboard') kdeconnect-cli -n $device_name --send-clipboard
     ;;

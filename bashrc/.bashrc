@@ -25,3 +25,4 @@ fi
 unset rc
 
 alias v="nvim"
+export PATH="$HOME/.emacs.d/bin:$PATH"
