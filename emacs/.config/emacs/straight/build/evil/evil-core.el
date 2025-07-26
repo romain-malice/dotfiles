@@ -1,0 +1,1 @@
+/home/rmalice/.config/emacs/straight/repos/evil/evil-core.el

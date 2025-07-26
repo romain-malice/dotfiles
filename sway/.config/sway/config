@@ -34,7 +34,7 @@ gaps outer 3
 gaps top 3
 
 default_border pixel 2
-smart_borders no
+smart_borders yes
 
 # Colors
 #client.<class> <border> <background> <text> (more at 'man 5 sway')
