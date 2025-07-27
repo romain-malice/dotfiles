@@ -1,0 +1,1 @@
+/home/rmalice/.config/emacs/straight/repos/vertico/vertico.el

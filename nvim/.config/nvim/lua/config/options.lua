@@ -1,32 +1,88 @@
--- Clipboard
-vim.opt.clipboard = "unnamedplus" -- use system clipboard TODO: make it work
+-- Basic settings
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.cursorline = true
+vim.opt.wrap = false
+vim.opt.scrolloff = 10
+vim.opt.sidescrolloff = 8
 
-vim.opt.mouse = "a"               -- allow the mouse to be used in Nvim
+-- Indentation
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+vim.opt.expandtab = true
+vim.opt.smartindent = true
+vim.opt.autoindent = true
 
--- Tab
-vim.opt.tabstop = 4      -- number of visual spaces per TAB
-vim.opt.softtabstop = 4  -- number of spacesin tab when editing
-vim.opt.shiftwidth = 4   -- insert 4 spaces on a tab
-vim.opt.expandtab = true -- tabs are spaces, mainly because of python
+-- Search
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
 
--- UI config
-vim.opt.number = true         -- show absolute number
-vim.opt.relativenumber = true -- add numbers to each line on the left side
-vim.opt.cursorline = true     -- highlight cursor line underneath the cursor horizontally
-vim.opt.splitbelow = true     -- open new vertical split bottom
-vim.opt.splitright = true     -- open new horizontal splits right
+-- Visual mode
+vim.opt.termguicolors = true
+vim.opt.signcolumn = "yes"
+vim.opt.showmatch = false
+vim.opt.cmdheight = 1
+vim.opt.completeopt = "menuone,noinsert,noselect"
+vim.opt.showmode = false
+vim.opt.pumheight = 10
+vim.opt.pumblend = 10
+vim.opt.winblend = 0
+vim.opt.conceallevel = 0
+vim.opt.concealcursor = ""
+vim.opt.lazyredraw = true
+vim.opt.synmaxcol = 300
 
--- Searching
-vim.opt.incsearch = true  -- search as characters are entered
-vim.opt.hlsearch = false  -- do not highlight matches
-vim.opt.ignorecase = true -- ignore case in searches by default
-vim.opt.smartcase = true  -- but make it case sensitive if an uppercase is entered
+-- Files
+vim.opt.backup = false
+vim.opt.writebackup = false
+vim.opt.swapfile = false
+vim.opt.undofile = true
+vim.opt.undodir = vim.fn.expand("~/.vim/undodir")
+vim.opt.updatetime = 300
+vim.opt.timeoutlen = 500
+vim.opt.autoread = true
+vim.opt.autowrite = false
 
--- Diagnostics
-vim.diagnostic.config({
-    virtual_text = false,
-    virtual_lines = true,
-})
+-- Behavior
+vim.opt.hidden = true
+vim.opt.errorbells = false
+vim.opt.backspace = "indent,eol,start"
+vim.opt.autochdir = false
+vim.opt.iskeyword:append("-")
+vim.opt.path:append("**")
+vim.opt.selection = "exclusive"
+vim.opt.mouse = "a"
+vim.opt.clipboard:append("unnamedplus")
+vim.opt.modifiable = true
+vim.opt.encoding = "UTF-8"
 
--- Theme choice
-vim.cmd("colorscheme dawnfox")
+-- Command-line completion
+vim.opt.wildmenu = true
+vim.opt.wildmode = "longest:full,full"
+vim.opt.wildignore:append({ "*.o", "*.obj", "*.pyc", "*.class", "*.jar" })
+
+-- Better diff options
+vim.opt.diffopt:append("linematch:60")
+
+-- Performance improvements
+vim.opt.redrawtime = 10000
+vim.opt.maxmempattern = 20000
+
+-- Create undo directory if it doesn't exist
+local undodir = vim.fn.expand("~/.vim/undodir")
+if vim.fn.isdirectory(undodir) == 0 then
+  vim.fn.mkdir(undodir, "p")
+end
+
+-- Tab display settings
+vim.opt.showtabline = 1  -- Always show tabline (0=never, 1=when multiple tabs, 2=always)
+vim.opt.tabline = ''     -- Use default tabline (empty string uses built-in)
+
+-- Transparent tabline appearance
+vim.cmd([[
+  hi TabLineFill guibg=NONE ctermfg=242 ctermbg=NONE
+]])
+

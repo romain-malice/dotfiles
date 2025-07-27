@@ -25,4 +25,4 @@ fi
 unset rc
 
 alias v="nvim"
-export TERMINAL_THEME="light"
+export PATH="$HOME/.emacs.d/bin:$PATH"

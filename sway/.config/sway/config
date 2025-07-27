@@ -5,7 +5,7 @@ exec mako
 
 # Default apps
 set $term alacritty
-set $menu fuzzel
+set $menu "rofi -show drun"
 
 # Idle
 exec swayidle -w \
@@ -20,7 +20,7 @@ exec swayidle -w \
 include "./config.d/*"
 
 # Color temperature adjustement
-exec gammastep -l 50.64:5.57 -t 5700:3600 -g 0.8 -m wayland
+exec gammastep -l 50.64:5.57 -t 5000:3600 -g 0.8 -m wayland
 
 # Disable laptop screen
 bindsym $mod+d exec swaymsg output eDP-1 disable
@@ -29,19 +29,28 @@ bindsym $mod+Shift+d exec swaymsg output eDP-1 enable
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
 # Borders
-# gaps inner 7
-# gaps outer 4
-# gaps top 4
+gaps inner 3
+gaps outer 3
+gaps top 3
 
 default_border pixel 2
 smart_borders yes
 
+# Colors
+#client.<class> <border> <background> <text> (more at 'man 5 sway')
+client.unfocused #3b4252 #2e3440 #d8dee9
+client.focused #8fbcbb #8fbcbb #eceff4
+
 set $gnome-schema org.gnome.desktop.interface
-exec_always {
-    gsettings set $gnome-schema gtk-theme 'Adwaita'
-    gsettings set $gnome-schema color-scheme 'prefer-light'
-    gsettings set $gnome-schema cursor-theme 'volantes_cursors'
-}
+# exec_always {
+#     gsettings set $gnome-schema gtk-theme 'Adwaita'
+#     gsettings set $gnome-schema color-scheme 'prefer-light'
+#     gsettings set $gnome-schema cursor-theme 'volantes_cursors'
+# }
+
+# Gestures
+bindgesture swipe:right workspace prev
+bindgesture swipe:left workspace next
 
 # -------------
 # -- Scripts --
@@ -52,3 +61,10 @@ bindsym $mod+p exec $HOME/.config/sway/scripts/power-menu.sh
 
 # KDE Connect
 bindsym $mod+c exec $HOME/.config/sway/scripts/kdeconnect.sh
+
+# ----------------------
+# -- Floating windows --
+# ----------------------
+
+for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
+for_window [title="Picture-in-Picture"] floating enable, sticky enable

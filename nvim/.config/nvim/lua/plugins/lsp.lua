@@ -5,12 +5,13 @@ return {
             vim.lsp.enable("clangd")
             vim.lsp.enable("lua_ls")
             vim.lsp.enable("tinymist")
+            vim.lsp.enable("texlab")
             vim.lsp.enable("bash_language_server")
         end,
     },
     {
         "mason-org/mason.nvim",
-        opts = {},
+        opts = {}
     },
     {
         "folke/lazydev.nvim",

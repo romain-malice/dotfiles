@@ -39,5 +39,6 @@ luac.out
 *.x86_64
 *.hex
 
+# Emacs straight.el packages
 emacs/.config/emacs/*
 !emacs/.config/emacs/*.el
