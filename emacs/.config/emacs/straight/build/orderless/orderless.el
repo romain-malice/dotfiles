@@ -1,1 +1,0 @@
-/home/rmalice/.config/emacs/straight/repos/orderless/orderless.el

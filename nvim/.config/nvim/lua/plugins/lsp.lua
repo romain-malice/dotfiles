@@ -1,17 +1,26 @@
 return {
     {
+        "mason-org/mason.nvim",
+        opts = {}
+    },
+    {
+        "mason-org/mason-lspconfig.nvim",
+        opts = {},
+        dependencies = {
+            { "mason-org/mason.nvim", opts = {} },
+            "neovim/nvim-lspconfig",
+        },
+    },
+    {
         "neovim/nvim-lspconfig",
         config = function()
             vim.lsp.enable("clangd")
             vim.lsp.enable("lua_ls")
             vim.lsp.enable("tinymist")
             vim.lsp.enable("texlab")
-            vim.lsp.enable("bash_language_server")
+            vim.lsp.enable("bash-language-server")
+            vim.diagnostic.config({ virtual_text = true })
         end,
-    },
-    {
-        "mason-org/mason.nvim",
-        opts = {}
     },
     {
         "folke/lazydev.nvim",

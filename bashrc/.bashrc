@@ -26,3 +26,4 @@ unset rc
 
 alias v="nvim"
 export PATH="$HOME/.emacs.d/bin:$PATH"
+export ZK_NOTEBOOK_DIR="$HOME/Documents/zettelkasten"

@@ -3,7 +3,7 @@
     "position": "top", // Waybar position (top|bottom|left|right)
     "modules-left": [ "clock", "sway/language", "custom/scratchpad-indicator", "sway/mode", "idle_inhibitor", "custom/media"],
     "modules-center": ["sway/workspaces"],
-    "modules-right": [ "temperature", "custom/gpu", "battery", "backlight", "pulseaudio", "network" ],
+    "modules-right": [ "temperature", "custom/gpu", "battery", "backlight", "pulseaudio", "network", "tray" ],
     // Modules configuration
     "sway/workspaces": {
         "disable-scroll": true,
@@ -50,7 +50,7 @@
         "critical-threshold": 74,
         "format-critical": "  {temperatureC}°C",
         "format": "{icon} {temperatureC}°C",
-        "format-icons": ["", "", ""],
+        "format-icons": [ "", "", "" ],
         "max-length": 7,
         "min-length": 7,
         "tooltip": false,
@@ -76,7 +76,7 @@
         "format": "{icon} {volume}%{format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": "{format_source}",
+        "format-muted": " {format_source}",
         "format-source": " | ",
         "format-source-muted": "",
         "format-icons": {
