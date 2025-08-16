@@ -1,6 +1,8 @@
 return{
     "zk-org/zk-nvim",
     config = function()
-        picker = "fzf_lua"
+        require("zk").setup{
+            picker = {"fzf_lua"}
+        }
     end
 }
