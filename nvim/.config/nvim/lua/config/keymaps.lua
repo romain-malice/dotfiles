@@ -1,6 +1,6 @@
 -- Key mappings
-vim.g.mapleader = " "                              -- Set leader key to space
-vim.g.maplocalleader = "\\"                         -- Set local leader key (NEW)
+vim.g.mapleader = " "       -- Set leader key to space
+vim.g.maplocalleader = "\\" -- Set local leader key (NEW)
 
 -- Center screen when jumping
 vim.keymap.set("n", "n", "nzzzv", { desc = "Next search result (centered)" })
@@ -50,11 +50,37 @@ vim.keymap.set("n", "<leader>qc", ":Oil ~/.config/nvim/<CR>", { desc = "Edit con
 
 -- Highlight yanked text
 vim.api.nvim_create_autocmd("TextYankPost", {
-  group = augroup,
-  callback = function()
-    vim.highlight.on_yank()
-  end,
+    callback = function()
+        vim.highlight.on_yank()
+    end,
 })
 
--- Formatting
---
+-- Toggle text wrap
+local text_group = vim.api.nvim_create_augroup('SpellCheckToggle', { clear = true })
+
+-- Text buffers
+vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
+    group = text_group,
+    pattern = { '*.tex', '*.typ', '*.md', '*.txt' },
+    callback = function()
+        vim.opt_local.spell = true
+        vim.opt_local.spelllang = 'en_us'
+        vim.opt_local.textwidth = 80
+    end,
+})
+
+-- Other buffers
+vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
+    group = text_group,
+    pattern = '*',
+    callback = function()
+        local fname = vim.fn.expand('%:t')
+
+        -- Check if the file doesn't match our text extensions
+        if not (fname:match('%.tex$') or fname:match('%.typ$') or
+                fname:match('%.md$') or fname:match('%.txt$')) then
+            vim.opt_local.spell = false
+            vim.opt_local.textwidth = 0
+        end
+    end,
+})

@@ -6,11 +6,12 @@ return {
     {
         "neovim/nvim-lspconfig",
         config = function()
-            vim.lsp.enable('pylsp')
+            vim.lsp.enable('pyright')
             vim.lsp.enable("texlab")
             vim.lsp.enable("tinymist")
             vim.lsp.enable("lua_ls")
             vim.lsp.enable('docker_language_server')
+            vim.lsp.enable('clangd')
 
             vim.diagnostic.config({ virtual_text = true })
 

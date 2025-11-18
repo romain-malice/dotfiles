@@ -35,9 +35,8 @@ return {
                 \caption{<>}
                 \label{fig:<>}
             \end{figure}
-            <>
             ]],
-            { i(1, "Image file"), i(2, "Caption"), i(3, "Label"), i(0) }
+            { i(1, "Image file"), i(2, "Caption"), i(3, "Label") }
         )
     ),
     s("table",
@@ -52,7 +51,6 @@ return {
                 \caption{<>}
                 \label{tab:<>}
             \end{table}
-            <>
             ]],
             {
                 i(1, "0"),
@@ -60,7 +58,6 @@ return {
                 d(3, rec_table, { 1 }),
                 i(4, "Caption"),
                 i(5, "Label"),
-                i(0),
             }
         )
     ),
@@ -73,9 +70,8 @@ return {
             \begin{<>}
                 <>
             \end{<>}
-            <>
             ]],
-            { i(1), i(2), rep(1), i(0) }
+            { i(1), i(2), rep(1) }
         )
     ),
 
@@ -87,9 +83,8 @@ return {
             \begin{equation*}
                 <>
             \end{equation*}
-            <>
             ]],
-            { i(1), i(0) }
+            { i(1) }
         )
     ),
 

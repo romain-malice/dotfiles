@@ -11,5 +11,10 @@ return {
         opts = {
             variant = "moon",
         }
+    },
+    {
+        "catgoose/nvim-colorizer.lua",
+        event = "BufReadPre",
+        opts = {},
     }
 }
