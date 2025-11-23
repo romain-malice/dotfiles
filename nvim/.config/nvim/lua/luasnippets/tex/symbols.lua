@@ -17,6 +17,7 @@ return {},
         -- Sub and super scripts
         s({ trig = "sx", wordTrig = false }, fmta("_\\text{<>}", { i(1) })),
         s({ trig = "RR" }, t("\\mathbb{R}")),
+        s({ trig = "NN" }, t("\\mathbb{N}")),
 
         -- Matrices
         s({ trig = "trr" }, t("^\\top")),
