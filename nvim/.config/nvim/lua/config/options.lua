@@ -74,4 +74,4 @@ vim.opt.redrawtime = 10000
 vim.opt.maxmempattern = 20000
 
 -- Aesthetics
-vim.cmd("colorscheme rose-pine")
+vim.cmd("colorscheme gruvbox")
