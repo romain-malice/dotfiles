@@ -1,7 +1,7 @@
 return {
     {
         "mason-org/mason.nvim",
-        opts = {}
+        opts = { ensure_installed = { "tree-sitter-cli" } },
     },
     {
         "neovim/nvim-lspconfig",

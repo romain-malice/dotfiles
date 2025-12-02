@@ -5,4 +5,4 @@ $root_filename = 'main.tex';
 $out_dir = 'build';
 
 # PDF output
-$pdf_mode = 1;  # 1 = pdflatex, 4 = lualatex, 5 = xelatex
+$pdf_mode = 4;  # 1 = pdflatex, 4 = lualatex, 5 = xelatex

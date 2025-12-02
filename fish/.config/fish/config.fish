@@ -3,5 +3,5 @@ if status is-interactive
     zoxide init fish | source
     starship init fish | source
     abbr -a v nvim
-    abbr -a ape source ./.venv/bin/activate
+    abbr -a ape source .venv/bin/activate.fish
 end

@@ -7,7 +7,7 @@ return {
             dependencies_bin = { ['tinymist'] = 'tinymist' }
         }, -- lazy.nvim will implicitly calls `setup {}`
         config = function()
-            vim.keymap.set("n", "<localleader>ll", ":TypstPreviewToggle<CR>")
+            vim.keymap.set("n", "<localleader>tt", ":TypstPreviewToggle<CR>")
         end
     },
     {

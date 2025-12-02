@@ -26,6 +26,24 @@ return {}, {
     s({ trig = "rm", condition = in_mathzone },
         fmta("\\mathrm{<>}", { i(1), })
     ),
+    s({ trig = "clc", condition = in_mathzone },
+        fmta("\\mathcal{<>}", { i(1), })
+    ),
+    s({ trig = "scs", condition = in_mathzone },
+        fmta("\\mathscr{<>}", { i(1), })
+    ),
+    s({ trig = "\"", condition = in_mathzone },
+        fmta("\\text{<>}", { i(1), })
+    ),
+
+    -- Complex
+    s({ trig = "Re", condition = in_mathzone },
+        fmta("\\mathrm{Re}\\left\\{ <> \\right\\}", { i(1), })
+    ),
+    s({ trig = "Im", condition = in_mathzone },
+        fmta("\\mathrm{Im}\\left\\{ <> \\right\\}", { i(1), })
+    ),
+
 
     -- Visual selection
     s({ trig = "U" }, fmta("\\underbrace{<>}_{<>}", { d(1, get_visual), i(2) }))
