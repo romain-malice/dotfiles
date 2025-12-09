@@ -30,6 +30,7 @@ return {
                 auto_install = true,
                 sync_install = false,
             })
+            require("nabla").enable_virt()
         end,
 
         keys = function()
@@ -42,4 +43,13 @@ return {
             }
         end,
     },
+    {
+        "zk-org/zk-nvim",
+        config = function()
+            require("zk").setup({
+                -- See Setup section below
+            })
+        end
+    },
+    { "jbyuki/venn.nvim" }
 }

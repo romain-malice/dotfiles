@@ -1,6 +1,5 @@
 # NOTEBOOK SETTINGS
 [notebook]
-dir = "~/wiki"
 
 [tool]
 editor = "nvim"

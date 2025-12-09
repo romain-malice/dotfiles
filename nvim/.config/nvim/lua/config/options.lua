@@ -75,3 +75,6 @@ vim.opt.maxmempattern = 20000
 
 -- Aesthetics
 vim.cmd("colorscheme gruvbox")
+
+-- Latex
+vim.cmd([[let g:tex_flavor = 'latex']])
