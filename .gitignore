@@ -1,3 +1,7 @@
 # Vim ignores
 nvim/.config/nvim/lazy-lock.json
 nvim/.config/nvim/undodir
+
+# Emacs packages
+emacs/.config/emacs/*
+!emacs/.config/emacs/init.el
