@@ -3,8 +3,8 @@
 ;;      so that the config stays understandable, manageable and fast
 
 ;; Defaults
-(setq-default cursor-type 'bar)
-(setq inhibit-startup-screen t)
+(setq-default cursor-type 'box)
+(setq inhibit-startup-screen nil)
 (setq ring-bell-function 'ignore)
 (menu-bar-mode -1)
 (tool-bar-mode -1)
@@ -15,7 +15,7 @@
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
 
-(blink-cursor-mode -1)
+;; (blink-cursor-mode -1)
 (global-display-line-numbers-mode 1)
 (dolist (mode '(org-mode-hook
                 term-mode-hook
@@ -31,7 +31,7 @@
 
 (if (my/get-system-theme)
     (load-theme 'modus-vivendi t)
-  (load-theme 'modus-operandi t))
+    (load-theme 'modus-operandi t))
 
 (use-package evil
   :ensure t
@@ -49,7 +49,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(org-agenda-files '("~/org/exam-schedule.org"))
- '(package-selected-packages '(auctex evil magit olivetti org-fragtog pdf-tools)))
+ '(package-selected-packages
+   '(auctex doc-toc evil magit olivetti org-fragtog ox-reveal pdf-tools)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -114,9 +115,9 @@
   (set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch))
   (set-face-attribute 'org-block nil            :foreground nil :inherit
 		      'fixed-pitch :height 0.85)
-  (set-face-attribute 'org-code nil             :inherit '(shadow fixed-pitch) :height 0.85)
-  (set-face-attribute 'org-indent nil           :inherit '(org-hide fixed-pitch) :height 0.85)
-  (set-face-attribute 'org-verbatim nil         :inherit '(shadow fixed-pitch) :height 0.85)
+  (set-face-attribute 'org-code nil             :inherit '(shadow fixed-pitch))
+  (set-face-attribute 'org-indent nil           :inherit '(org-hide fixed-pitch))
+  (set-face-attribute 'org-verbatim nil         :inherit '(shadow fixed-pitch))
   (set-face-attribute 'org-special-keyword nil  :inherit '(font-lock-comment-face
 							   fixed-pitch))
   (set-face-attribute 'org-meta-line nil        :inherit '(font-lock-comment-face fixed-pitch))
@@ -124,6 +125,7 @@
   (set-face-attribute 'org-table nil :inherit 'fixed-pitch)
   (set-face-attribute 'org-document-info-keyword nil :inherit 'fixed-pitch)
   (set-face-attribute 'org-latex-and-related nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-drawer nil :inherit '(font-locked-comment_face fixed-pitch))
 
   (setq org-adapt-indentation t
       org-hide-leading-stars t
@@ -136,6 +138,22 @@
 (use-package olivetti
   :ensure t
   :hook (org-mode . olivetti-mode))
+
+(use-package ox-reveal
+  :ensure t)
+
+;; Define preset scales for different monitors
+(defun my/org-latex-preview-laptop ()
+  "Set LaTeX preview scale for laptop screen."
+  (interactive)
+  (plist-put org-format-latex-options :scale 0.6)
+  (org-latex-preview '(16))) ; Regenerate previews
+
+(defun my/org-latex-preview-external ()
+  "Set LaTeX preview scale for external monitor."
+  (interactive)
+  (plist-put org-format-latex-options :scale 1.3)
+  (org-latex-preview '(16))) ; Regenerate previews
 
 ;; --------------------------------------------------------------- ;;
 

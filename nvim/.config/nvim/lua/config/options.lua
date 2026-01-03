@@ -74,7 +74,7 @@ vim.opt.redrawtime = 10000
 vim.opt.maxmempattern = 20000
 
 -- Aesthetics
-vim.cmd("colorscheme gruvbox")
+vim.cmd("colorscheme tokyonight-storm")
 
 -- Latex
 vim.cmd([[let g:tex_flavor = 'latex']])

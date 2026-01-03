@@ -8,6 +8,7 @@ if status is-interactive
     # Abbreviations
     abbr -a v nvim
     abbr -a ape source .venv/bin/activate.fish
+    abbr -a ls ls -l
 
     set -gx ZK_NOTEBOOK_DIR "$HOME/wiki"
 end

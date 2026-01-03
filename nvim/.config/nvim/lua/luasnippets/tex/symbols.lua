@@ -25,7 +25,7 @@ return {},
         -- Sub and super scripts
         s({ trig = "sx", wordTrig = false }, fmta("_\\text{<>}", { i(1) })),
 
-        s({ trig = '([%a%)%]%}])([%d])', regTrig = true, wordTrig = false },
+        s({ trig = '([%a%)%]%}])([%d])', regTrig = true, wordTrig = false, condition = in_mathzone },
             fmta(
                 "<>_{<>}",
                 {
