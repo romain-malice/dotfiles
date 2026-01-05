@@ -1,18 +1,7 @@
 return {
     {
-        "mason-org/mason.nvim",
-        opts = { ensure_installed = { "tree-sitter-cli" } },
-    },
-    {
         "neovim/nvim-lspconfig",
         config = function()
-            vim.lsp.enable('pyright')
-            vim.lsp.enable("texlab")
-            vim.lsp.enable("tinymist")
-            vim.lsp.enable("lua_ls")
-            vim.lsp.enable('docker_language_server')
-            vim.lsp.enable('clangd')
-
             vim.diagnostic.config({ virtual_text = true })
 
             vim.api.nvim_create_autocmd('LspAttach', {

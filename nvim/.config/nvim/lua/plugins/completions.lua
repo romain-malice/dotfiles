@@ -1,7 +1,7 @@
 return {
     {
         'saghen/blink.cmp',
-        dependencies = { { 'rafamadriz/friendly-snippets' }, { 'L3MON4D3/LuaSnip', version = 'v2.*' } },
+        dependencies = { { 'L3MON4D3/LuaSnip', version = 'v2.*' } },
         version = '1.*',
         opts = {
             -- C-space: Open menu or open docs if already open

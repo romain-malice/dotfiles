@@ -36,12 +36,6 @@ vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
 vim.keymap.set("v", "<", "<gv", { desc = "Indent left and reselect" })
 vim.keymap.set("v", ">", ">gv", { desc = "Indent right and reselect" })
 
--- Quick file navigation
-local builtin = require('telescope.builtin')
-vim.keymap.set("n", "<leader>e", ":Explore<CR>", { desc = "Open file explorer" })
-vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find file" })
-vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Find file" })
-
 -- Better J behavior
 vim.keymap.set("n", "J", "mzJ`z", { desc = "Join lines and keep cursor position" })
 
@@ -58,7 +52,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- Toggle text wrap
 local text_group = vim.api.nvim_create_augroup('SpellCheckToggle', { clear = true })
 
--- Text buffers
+-- Spell check and line wrap in text buffers
 vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
     group = text_group,
     pattern = { '*.tex', '*.typ', '*.md', '*.txt' },
@@ -69,7 +63,7 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
     end,
 })
 
--- Other buffers
+-- Disable these options for code buffers
 vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
     group = text_group,
     pattern = '*',

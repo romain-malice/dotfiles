@@ -1,8 +1,8 @@
 return {
     {
-        'nvim-lualine/lualine.nvim',
-        dependencies = { 'nvim-tree/nvim-web-devicons' },
-        opts = {}
+        'nvim-mini/mini.statusline',
+        version = false,
+        opts = {},
     },
     {
         "folke/tokyonight.nvim",
